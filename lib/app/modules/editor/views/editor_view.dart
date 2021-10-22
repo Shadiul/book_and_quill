@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
-import '../controllers/home_controller.dart';
+import '../controllers/editor_controller.dart';
 
-class HomeView extends GetView<HomeController> {
+class EditorView extends GetView<EditorController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomeView'),
+        title: Text('EditorView'),
         centerTitle: true,
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: controller.onTapEditor,
-          child: Text('Go to editor'),
+        child: Text(
+          'EditorView is working',
+          style: TextStyle(fontSize: 20),
         ),
       ),
     );
