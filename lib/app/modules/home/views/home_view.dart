@@ -7,10 +7,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('HomeView'),
-        centerTitle: true,
-      ),
       body: Center(
         child: ElevatedButton(
           onPressed: controller.onTapEditor,

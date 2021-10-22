@@ -9,7 +9,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "Application",
+      debugShowCheckedModeBanner: false,
+      title: "Book & Quill",
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart' as quill;
 
 import 'package:get/get.dart';
 
@@ -9,14 +10,24 @@ class EditorView extends GetView<EditorController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('EditorView'),
-        centerTitle: true,
+        actions: [
+          TextButton.icon(onPressed: controller.onTapSave, icon: Icon(Icons.save), label: Text('save'))
+        ],
       ),
-      body: Center(
-        child: Text(
-          'EditorView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: Column(
+        children: [
+          quill.QuillToolbar.basic(
+            controller: controller.quillController,
+          ),
+          Expanded(
+            child: Container(
+              child: quill.QuillEditor.basic(
+                controller: controller.quillController,
+                readOnly: false, // true for view only mode
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
