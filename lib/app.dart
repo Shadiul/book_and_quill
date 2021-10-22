@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'app/core/theme/default_theme.dart';
+import 'app/core/theme/themes.dart';
 import 'app/routes/app_pages.dart';
 
 class App extends StatelessWidget {
@@ -8,11 +10,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Themes themes = Themes();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Book & Quill",
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,
+      theme: themes.defaultTheme,
     );
   }
 }

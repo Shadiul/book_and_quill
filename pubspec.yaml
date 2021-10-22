@@ -23,3 +23,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: sailec_light
+      fonts:
+        - asset: fonts/sailec_light.ttf
