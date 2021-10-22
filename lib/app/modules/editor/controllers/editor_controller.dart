@@ -1,24 +1,18 @@
-import 'dart:convert';
-import 'dart:developer';
-
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:html_editor_enhanced/html_editor.dart';
 
 class EditorController extends GetxController {
-  QuillController quillController = QuillController.basic();
+  HtmlEditorController htmlEditorController = HtmlEditorController();
+  Future<void> setEditorBgColor(Color color) async {
+    htmlEditorController.execCommand('fontName', argument: 'Consolas');
+    await htmlEditorController.editorController!.evaluateJavascript(
+      source:
+          "document.getElementsByClassName('note-editable')[0].style.backgroundColor='rgb(${color.red}, ${color.green}, ${color.blue})';",
+    );
+  }
 
   RxString text = RxString('');
 
-  @override
-  void onReady() {
-    quillController.addListener(() {
-      text.value = quillController.document.toPlainText();
-    });
-    super.onReady();
-  }
-
-  Future<void> onTapSave() async {
-    String json = jsonEncode(quillController.document.toDelta().toJson());
-    log(json);
-  }
+  Future<void> onTapSave() async {}
 }

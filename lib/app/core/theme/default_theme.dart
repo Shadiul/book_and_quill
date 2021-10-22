@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class DefaultTheme {
   Color primaryColor = Colors.black87;
@@ -7,7 +8,7 @@ class DefaultTheme {
 
   ThemeData get defaultTheme => ThemeData(
         brightness: Brightness.light,
-        fontFamily: 'sailec_light',
+        fontFamily: 'Sailec Light',
         canvasColor: canvasColor,
         visualDensity: VisualDensity.standard,
         colorScheme: ColorScheme.light(
@@ -18,6 +19,10 @@ class DefaultTheme {
           backgroundColor: Colors.transparent,
           foregroundColor: primaryColor,
           elevation: 0.0,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: canvasColor,
+            statusBarIconBrightness: Brightness.dark,
+          ),
         ),
       );
 }
